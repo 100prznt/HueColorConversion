@@ -8,7 +8,7 @@ Console application to convert rgb hexvalues to hsb values.
 Enter a rgb hexvalue with 6 digets and press enter ;)
 
 ## Screenshoot
-![Screenshoot](docs/NetworkScanner_Screen.png)
+![Screenshoot](docs/HueColorConversion_Screen.png)
 
 ## Credits
 
