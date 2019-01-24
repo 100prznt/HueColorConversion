@@ -11,8 +11,7 @@ Enter a rgb hexvalue with 6 digets and press enter ;)
 
 * **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
 
-Under [Contributors](https://github.com/100prznt/HueColorConversion
-/contributors) you can see more project supporter.
+Under [Contributors](https://github.com/100prznt/HueColorConversion/contributors) you can see more project supporter.
 
 ### Open Source Project Credits
 
@@ -20,11 +19,7 @@ Under [Contributors](https://github.com/100prznt/HueColorConversion
 
 ## License
 
-This project (HueColorConversion
-) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
-Refer to [LICENSE](https://github.com/100prznt/HueColorConversion
-/blob/master/LICENSE.txt) for more information.
+This project (HueColorConversion) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
+Refer to [LICENSE](https://github.com/100prznt/HueColorConversion/blob/master/LICENSE.txt) for more information.
 
-[![license](https://img.shields.io/github/license/100prznt/HueColorConversion
-.svg)](https://github.com/100prznt/HueColorConversion
-/blob/master/LICENSE.txt) 
+[![license](https://img.shields.io/github/license/100prznt/HueColorConversion.svg)](https://github.com/100prznt/HueColorConversion/blob/master/LICENSE.txt) 
