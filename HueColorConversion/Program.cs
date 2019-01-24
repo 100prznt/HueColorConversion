@@ -40,33 +40,93 @@ namespace HueColorConversion
 
             #endregion
 
-            Console.WriteLine("Enter RGB hexcode (6 digits):");
-            Console.Write("#");
-            var input = Console.ReadLine();
+            Console.WriteLine("Converters:");
+            Console.WriteLine("1. RGB hexvalue to HSB (hue, sat, bri)");
+            Console.WriteLine("2. RGB (red, green, blue) to HSB (hue, sat, bri)");
             Console.WriteLine();
-            var rgbInput = new RGBColor();
-            try
+            Console.Write("Enter number of converter you wan't to use: ");
+            var converterSelection = Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine(String.Empty.PadLeft(80, '-'));
+
+            switch (converterSelection.KeyChar)
             {
-                rgbInput = new RGBColor(input);
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input!");
-                Console.WriteLine(ex.Message);
-                Console.ReadKey();
-                return;
+                case '1':
+                    Console.WriteLine("Convert RGB hexvalue to HSB (hue, sat, bri)");
+                    Console.WriteLine(String.Empty.PadLeft(80, '-'));
+                    Console.WriteLine("Enter RGB hexcode (6 digits):");
+                    Console.Write("#");
+                    var input = Console.ReadLine();
+                    Console.WriteLine();
+                    var rgbInput = new RGBColor();
+                    try
+                    {
+                        rgbInput = new RGBColor(input);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid input!");
+                        Console.WriteLine(ex.Message);
+                        Console.ReadKey();
+                        return;
+                    }
+
+                    var hsb = rgbInput.GetHSB();
+                    Console.WriteLine("Hue: {0}", hsb.Hue);
+                    Console.WriteLine("Sat: {0}", hsb.Saturation);
+                    Console.WriteLine("Bri: {0}", hsb.Brightness);
+
+                    break;
+                case '2':
+                    Console.WriteLine("Convert RGB hexvalue to HSB (hue, sat, bri)");
+                    Console.WriteLine(String.Empty.PadLeft(80, '-'));
+                    Console.WriteLine("Enter the RGB values (0-255):");
+                    Console.Write("R: ");
+                    var r = Console.ReadLine().ToByte();
+                    Console.Write("G: ");
+                    var g = Console.ReadLine().ToByte();
+                    Console.Write("B: ");
+                    var b = Console.ReadLine().ToByte();
+
+                    Console.WriteLine();
+                    var rgbInput2 = new RGBColor(r, g, b);
+
+                    var hsb2 = rgbInput2.GetHSB();
+                    Console.WriteLine("Hue: {0}", hsb2.Hue);
+                    Console.WriteLine("Sat: {0}", hsb2.Saturation);
+                    Console.WriteLine("Bri: {0}", hsb2.Brightness);
+
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Invalid input!");
+                    break;
             }
 
-            var hsb = rgbInput.GetHSB();
-            Console.WriteLine("Hue: {0}", hsb.Hue);
-            Console.WriteLine("Sat: {0}", hsb.Saturation);
-            Console.WriteLine("Bri: {0}", hsb.Brightness);
+
 
             Console.ReadKey();
 
+        }
 
 
+    }
+
+    public static class StringExtensions
+    {
+        public static byte ToByte(this string inputString)
+        {
+            byte value;
+
+            if (!Byte.TryParse(inputString, out value))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid input!");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+            return value;
         }
     }
 }
