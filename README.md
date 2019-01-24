@@ -20,6 +20,6 @@ Under [Contributors](https://github.com/100prznt/HueColorConversion/contributors
 ## License
 
 This project (HueColorConversion) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
-Refer to [LICENSE](https://github.com/100prznt/HueColorConversion/blob/master/LICENSE.txt) for more information.
+Refer to [LICENSE](https://github.com/100prznt/HueColorConversion/blob/master/LICENSE) for more information.
 
 [![license](https://img.shields.io/github/license/100prznt/HueColorConversion.svg)](https://github.com/100prznt/HueColorConversion/blob/master/LICENSE.txt) 
