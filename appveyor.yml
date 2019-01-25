@@ -20,6 +20,8 @@ skip_commits:
     - appveyor.yml
     - LICENSE.txt
     - '.gitignor'
+before_build:
+- cmd: nuget restore
 build:
   project: HueColorConversion.sln
   verbosity: minimal
