@@ -128,7 +128,7 @@ namespace HueColorConversion
 
             Console.WriteLine();
             Console.WriteLine(String.Empty.PadLeft(80, '-'));
-            Console.Write("Press [Space] for next conversion or any key for exit.");
+            Console.Write("Press [Space] for next conversion or any key for exit ");
 
             switch (Console.ReadKey().Key)
             {
