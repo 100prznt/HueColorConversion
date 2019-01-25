@@ -43,6 +43,7 @@ namespace HueColorConversion
             Console.WriteLine("Converters:");
             Console.WriteLine("1. RGB hexvalue to HSB (hue, sat, bri)");
             Console.WriteLine("2. RGB (red, green, blue) to HSB (hue, sat, bri)");
+            Console.WriteLine("3. HSB (hue, sat, bri) to RGB hexvalue");
             Console.WriteLine();
             Console.Write("Enter number of converter you wan't to use: ");
             var converterSelection = Console.ReadKey();
@@ -79,7 +80,7 @@ namespace HueColorConversion
 
                     break;
                 case '2':
-                    Console.WriteLine("Convert RGB hexvalue to HSB (hue, sat, bri)");
+                    Console.WriteLine("Convert RGB (red, green, blue) to HSB (hue, sat, bri)");
                     Console.WriteLine(String.Empty.PadLeft(80, '-'));
                     Console.WriteLine("Enter the RGB values (0-255):");
                     Console.Write("R: ");
@@ -96,6 +97,23 @@ namespace HueColorConversion
                     Console.WriteLine("Hue: {0}", hsb2.Hue);
                     Console.WriteLine("Sat: {0}", hsb2.Saturation);
                     Console.WriteLine("Bri: {0}", hsb2.Brightness);
+
+                    break;
+                case '3':
+                    Console.WriteLine("Convert HSB (hue, sat, bri) to RGB hexvalue");
+                    Console.WriteLine(String.Empty.PadLeft(80, '-'));
+                    Console.WriteLine("Enter the HSB values:");
+                    Console.Write("Hue: ");
+                    var hue = Console.ReadLine().ToUInt16(); //This is a wrapping value between 0 and 65535
+                    Console.Write("Sat: ");
+                    var sat = Console.ReadLine().ToByte();
+                    Console.Write("Bri: ");
+                    var bri = Console.ReadLine().ToByte();
+
+                    Console.WriteLine();
+                    var hsbInput = new HSB(hue, sat, bri);
+
+                    Console.WriteLine("RGB: #{0}", hsbInput.GetRGB().ToHex());
 
                     break;
                 default:
@@ -120,6 +138,20 @@ namespace HueColorConversion
             byte value;
 
             if (!Byte.TryParse(inputString, out value))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid input!");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+            return value;
+        }
+
+        public static UInt16 ToUInt16(this string inputString)
+        {
+            UInt16 value;
+
+            if (!UInt16.TryParse(inputString, out value))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Invalid input!");
