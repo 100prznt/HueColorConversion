@@ -22,8 +22,8 @@ namespace HueColorConversion
             var appName = string.Format("{0} v{1}", typeof(Program).Assembly.GetName().Name, versionInfo.ProductVersion);
 
             Console.Title = appName;
-            Console.WindowWidth = 80;
-            Console.BufferWidth = 80;
+            Console.WindowWidth = 81;
+            Console.BufferWidth = 81;
             Console.WindowHeight = 36;
 
 
@@ -37,8 +37,11 @@ namespace HueColorConversion
             Console.WriteLine();
             Console.WriteLine(versionInfo.LegalCopyright);
             Console.WriteLine(String.Empty.PadLeft(80, '-'));
+            Console.WriteLine();
 
             #endregion
+
+            Start:
 
             Console.WriteLine("Converters:");
             Console.WriteLine("1. RGB hexvalue to HSB (hue, sat, bri)");
@@ -49,6 +52,7 @@ namespace HueColorConversion
             var converterSelection = Console.ReadKey();
             Console.WriteLine();
             Console.WriteLine(String.Empty.PadLeft(80, '-'));
+            Console.WriteLine();
 
             switch (converterSelection.KeyChar)
             {
@@ -122,13 +126,21 @@ namespace HueColorConversion
                     break;
             }
 
+            Console.WriteLine();
+            Console.WriteLine(String.Empty.PadLeft(80, '-'));
+            Console.Write("Press [Space] for next conversion or any key for exit.");
 
-
-            Console.ReadKey();
+            switch (Console.ReadKey().Key)
+            {
+                case ConsoleKey.Spacebar:
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    goto Start;
+                default:
+                    return;
+            }
 
         }
-
-
     }
 
     public static class StringExtensions
